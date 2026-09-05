@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "repository": "mvn-perf/embabel-agent",
+  "serverUrl": "https://github.com",
+  "runId": 33985987382,
+  "runNumber": 1,
+  "runAttempt": 1,
+  "workflowRef": "mvn-perf/embabel-agent/.github/workflows/maven.yml@refs/heads/mvn-lens-build-monitor",
+  "jobKey": "build",
+  "jobId": 101359441087,
+  "jobName": "build (windows-latest)",
+  "jobUrl": "https://github.com/mvn-perf/embabel-agent/actions/runs/33985987382/job/101359441087",
+  "runnerName": "GitHub Actions 1000001746",
+  "stepNumber": 6,
+  "stepName": "Build and test",
+  "stepResolution": "job-name/report-time",
+  "label": null,
+  "key": "j101359441087-s6",
+  "collectedAt": "2026-09-05T19:26:13.485Z",
+  "reports": [
+    {
+      "file": "report.html",
+      "originalPath": "target/mvnlens/report.html",
+      "label": null,
+      "summary": {
+        "schemaVersion": 1,
+        "groupId": "com.embabel.agent",
+        "artifactId": "embabel-agent-parent",
+        "version": "1.5.2-SNAPSHOT",
+        "goals": [
+          "test",
+          "verify"
+        ],
+        "threads": 1,
+        "builderId": "singlethreaded",
+        "mavenVersion": "3.9.16",
+        "jdkVersion": "21.0.12.1",
+        "status": "OK",
+        "startedAt": 1788635106553,
+        "endedAt": 1788636365896,
+        "totalMs": 1260444,
+        "wallMs": 1259343,
+        "cpuMs": 368491,
+        "gcMs": 0,
+        "gcCount": 1085,
+        "jitMs": 389728,
+        "c2Ms": 389517,
+        "downloadMs": 893541,
+        "downloadBytes": 583395748,
+        "downloadCount": 2012,
+        "moduleCount": 79,
+        "slowestMojo": {
+          "plugin": "org.apache.maven.plugins:maven-surefire-plugin",
+          "goal": "test",
+          "phase": "test",
+          "executionId": "default-test",
+          "moduleKey": "com.embabel.agent:embabel-agent-api:1.5.2-SNAPSHOT",
+          "durationMs": 307567
+        },
+        "slowestTest": {
+          "className": "com.embabel.agent.api.annotation.support.ActionRetryPolicyAnnotationJavaTest",
+          "methodName": "retryMethodFailsOnlyOnceSucceedsSecond",
+          "displayName": "retryMethodFailsOnlyOnceSucceedsSecond()",
+          "framework": "JUNIT5",
+          "durationMs": 10556
+        },
+        "testCount": 10,
+        "testMs": 55020,
+        "issueCount": 0,
+        "issueSeverities": {},
+        "environment": {
+          "availableProcessors": 4,
+          "cpuCores": 16,
+          "cpuThreads": 4,
+          "memoryBytes": 17174360064,
+          "osName": "Windows Server 2025 , 64 bit Build 26100 (10.0.26100.33296)",
+          "jvmName": "OpenJDK 64-Bit Server VM",
+          "jvmVendor": "Eclipse Adoptium",
+          "mvnd": false,
+          "githubActions": true,
+          "c2DisabledBy": null
+        }
+      },
+      "summarySource": "html",
+      "compressed": false,
+      "bytes": 3768344
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "repository": "mvn-perf/embabel-agent",
+  "serverUrl": "https://github.com",
+  "runId": 33986014510,
+  "runNumber": 2,
+  "runAttempt": 1,
+  "workflowRef": "mvn-perf/embabel-agent/.github/workflows/maven.yml@refs/pull/1/merge",
+  "jobKey": "build",
+  "jobId": 101359519110,
+  "jobName": "build (ubuntu-latest)",
+  "jobUrl": "https://github.com/mvn-perf/embabel-agent/actions/runs/33986014510/job/101359519110",
+  "runnerName": "GitHub Actions 1000001755",
+  "stepNumber": 6,
+  "stepName": "Build and test",
+  "stepResolution": "job-name/report-time",
+  "label": null,
+  "key": "j101359519110-s6",
+  "collectedAt": "2026-09-05T19:18:35.278Z",
+  "reports": [
+    {
+      "file": "report.html",
+      "originalPath": "target/mvnlens/report.html",
+      "label": null,
+      "summary": {
+        "schemaVersion": 1,
+        "groupId": "com.embabel.agent",
+        "artifactId": "embabel-agent-parent",
+        "version": "1.5.2-SNAPSHOT",
+        "goals": [
+          "test",
+          "verify"
+        ],
+        "threads": 1,
+        "builderId": "singlethreaded",
+        "mavenVersion": "3.9.16",
+        "jdkVersion": "21.0.12.1",
+        "status": "OK",
+        "startedAt": 1788635124536,
+        "endedAt": 1788635910636,
+        "totalMs": 786971,
+        "wallMs": 786100,
+        "cpuMs": 250154,
+        "gcMs": 7432,
+        "gcCount": 843,
+        "jitMs": 228230,
+        "c2Ms": 228230,
+        "downloadMs": 688009,
+        "downloadBytes": 583395748,
+        "downloadCount": 2012,
+        "moduleCount": 79,
+        "slowestMojo": {
+          "plugin": "org.apache.maven.plugins:maven-surefire-plugin",
+          "goal": "test",
+          "phase": "test",
+          "executionId": "default-test",
+          "moduleKey": "com.embabel.agent:embabel-agent-api:1.5.2-SNAPSHOT",
+          "durationMs": 183500
+        },
+        "slowestTest": {
+          "className": "com.embabel.agent.api.annotation.support.ActionRetryPolicyAnnotationJavaTest",
+          "methodName": "retryMethodFailsOnlyOnceSucceedsSecond",
+          "displayName": "retryMethodFailsOnlyOnceSucceedsSecond()",
+          "framework": "JUNIT5",
+          "durationMs": 10275
+        },
+        "testCount": 10,
+        "testMs": 44905,
+        "issueCount": 0,
+        "issueSeverities": {},
+        "environment": {
+          "availableProcessors": 4,
+          "cpuCores": 16,
+          "cpuThreads": 4,
+          "memoryBytes": 16766414848,
+          "osName": "DISTRIB_ID=Ubuntu",
+          "jvmName": "OpenJDK 64-Bit Server VM",
+          "jvmVendor": "Eclipse Adoptium",
+          "mvnd": false,
+          "githubActions": true,
+          "c2DisabledBy": null
+        }
+      },
+      "summarySource": "html",
+      "compressed": false,
+      "bytes": 3586080
+    }
+  ]
+}

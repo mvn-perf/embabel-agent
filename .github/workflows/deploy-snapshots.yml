@@ -28,6 +28,16 @@ jobs:
         uses: s4u/maven-settings-action@v2.8.0
         with:
           servers: ${{secrets.EMBABEL_ARTIFACTORY}}
+      # Must come before any Maven invocation rooted at the checkout: Maven loads the core
+      # extensions listed in .mvn/extensions.xml before it reads pom.xml, resolving them from
+      # settings.xml only, so the Maven Central snapshot repository serving mvn-lens cannot be
+      # declared in pom.xml. Building .mvn/pom.xml downloads the extension into the local
+      # repository, where every later invocation finds it. See .mvn/pom.xml.
+      # This job hands GITHUB_TOKEN to Maven, so it deliberately publishes no mvn-lens
+      # report: build-monitor/report would require contents:write on the job.
+      - name: Pre-resolve the mvn-lens extension
+        working-directory: .mvn
+        run: mvn -B -ntp -U dependency:resolve
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

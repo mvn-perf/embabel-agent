@@ -47,6 +47,14 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: |
           echo "testcontainers.reuse.enable=true" > $env:USERPROFILE\.testcontainers.properties
+      # Must come before any Maven invocation rooted at the checkout: Maven loads the core
+      # extensions listed in .mvn/extensions.xml before it reads pom.xml, resolving them from
+      # settings.xml only, so the Maven Central snapshot repository serving mvn-lens cannot be
+      # declared in pom.xml. Building .mvn/pom.xml downloads the extension into the local
+      # repository, where every later invocation finds it. See .mvn/pom.xml.
+      - name: Pre-resolve the mvn-lens extension
+        working-directory: .mvn
+        run: mvn -B -ntp -U dependency:resolve
       - name: Build and test
         env:
           SKIP_TESTCONTAINER_TESTS: true  # Do not run TestContainer Tests in Windows Matrix Build.
@@ -76,6 +84,10 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+      # See the "build" job: mandatory before any Maven invocation. See .mvn/pom.xml.
+      - name: Pre-resolve the mvn-lens extension
+        working-directory: .mvn
+        run: mvn -B -ntp -U dependency:resolve
       - name: Build and test
         run: |
           # Configure Testcontainers for Linux
